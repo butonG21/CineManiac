@@ -1,0 +1,172 @@
+@import "~bootstrap/scss/bootstrap";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+html {
+    --headingColor: #ff6b00;
+    --alternateBlack: #0d0d0d;
+    --backgroundAlternateBlack: rgba(13, 13, 13, 0.6);
+    --heightPage: 600px;
+}
+
+body movie-detail {
+    margin-top: -100px;
+}
+
+body movie-detail .backdrop {
+    width: 100%;
+    height: 640px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body movie-detail .backdrop .backdrop-background {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 51.4rem;
+}
+
+body movie-detail .backdrop .backdrop-background .backdrop-background-image-filter {
+    height: 100%;
+}
+
+body movie-detail .backdrop .backdrop-background .backdrop-background-image-filter img {
+    width: -webkit-fill-available;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+body movie-detail .backdrop .backdrop-background .backdrop-background-image-filter .img-gradient {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 0%, /* Menggunakan warna latar belakang lebih gelap di bagian atas */
+        rgba(0, 0, 0, 0.5) 10%, /* Warna gradient gelap sedikit di sekitar atas */
+        rgba(0, 0, 0, 0.4) 30%, /* Warna gradient lebih gelap di tengah atas */
+        rgba(0, 0, 0, 0.3) 50%, /* Warna gradient lebih gelap di tengah */
+        rgba(0, 0, 0, 0.4) 70%, /* Warna gradient lebih gelap di tengah bawah */
+        rgba(0, 0, 0, 0.5) 90%, /* Warna gradient gelap sedikit di sekitar bawah */
+        rgba(0, 0, 0, 0.7) 100% /* Menggunakan warna latar belakang lebih gelap di bagian bawah */
+    ), radial-gradient(closest-side at 0 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+    /* opacity: 0.6; */
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: inherit;
+}
+
+body movie-detail .backdrop .backdrop-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 75px 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext {
+    height: 141px;
+    width: 467px;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .genre {
+    display: inline-block;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .title h1 {
+    margin-top: 1rem;
+    font-size: 3rem;
+    line-height: 50.07px;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .tagline {
+    margin-top: -5px;
+    font-style: italic;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating {
+    margin-top: 4px;
+    /* margin-left: 4px; */
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .runtime{
+    font-size: 1.4rem;
+}
+
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .run-time{
+    font-size: 1.4rem;
+    margin-right: 2.5rem;
+}
+
+body movie-detail .backdrop .backdrop-info .info .bottominf-text{
+    margin-top: 6rem;
+    width: 600px;
+
+}
+/* Tambahkan CSS berikut ke dalam file CSS Anda */
+.modal-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/* Mengatur lebar maksimum modal */
+.modal-dialog {
+    max-width: 90%; /* Sesuaikan lebar maksimum sesuai kebutuhan Anda */
+  }
+
+  .modal-content {
+    background-color: transparent; /* Hapus latar belakang modal */
+  }
+  .modal-body  {
+    height: 90%;
+  }
+
+  .embed-responsive iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+
+.my-button {
+    color: gray;
+    opacity: 30%;
+    border: none;
+    font-size: 8rem;
+    padding: 0;
+}
+
+/* .tagline-text {
+    font-style: italic;
+} */
+
+.position-relative {
+    position: relative;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    z-index: 11; /* Atur nilai z-index ke 2 untuk membuat tombol di atas backdrop-info */
+}
+
+
+@media (max-width: 768px) {
+    .backdrop-info {
+      width: 90%;
+    }
+  }
