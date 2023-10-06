@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
 import moment from 'moment';
 import 'moment/locale/id';
@@ -131,9 +133,9 @@ class MovieDetail extends HTMLElement {
 }
 
 function getStarIconClass(voteAverage) {
-  if (parseInt(voteAverage) >= 7) {
+  if (parseInt(voteAverage, 10) >= 7) {
     return 'bi bi-star-fill';
-  } if (parseInt(voteAverage) < 7 && parseInt(voteAverage) >= 4) {
+  } if (parseInt(voteAverage, 10) < 7 && parseInt(voteAverage, 10) >= 4) {
     return 'bi bi-star-half';
   }
   return 'star bi-star';

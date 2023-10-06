@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
 class SearchBar extends HTMLElement {
   connectedCallback() {

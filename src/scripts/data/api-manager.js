@@ -104,7 +104,7 @@ class ApiManager {
     try {
       const response = await axios.get(`${config.ReqEndpoint.details}${movieId}?${config.API_KEY_PARAM}`);
       const { data } = response;
-      return data; // You'll need to parse this data to extract movie details.
+      return data;
     } catch (error) {
       console.error('Error fetching movie details:', error);
       throw error;

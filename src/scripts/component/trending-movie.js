@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-underscore-dangle */
 import moment from 'moment';
 import * as config from '../data/api-config';

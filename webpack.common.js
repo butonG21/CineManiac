@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -40,7 +41,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'fonts/', // Folder output untuk font
+            outputPath: 'fonts/',
           },
         },
       },
@@ -51,26 +52,35 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
       chunks: ['index'],
-      favicon: './src/asset/image/favicon2.png',
-
+      favicon: './src/asset/image/favicon.png',
     }),
     new HtmlWebpackPlugin({
       template: './src/details.html',
       filename: 'details.html',
       chunks: ['details'],
+      favicon: './src/asset/image/favicon.png',
     }),
     new HtmlWebpackPlugin({
       template: './src/search.html',
       filename: 'search.html',
       chunks: ['search'],
+      favicon: './src/asset/image/favicon.png',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    new CleanWebpackPlugin(),
   ],
   optimization: {
     minimizer: [
-      new TerserPlugin(),
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
       new CssMinimizerPlugin(),
     ],
     splitChunks: {

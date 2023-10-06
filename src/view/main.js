@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import '../scripts/component/nav-bar';
 import '../scripts/component/trend-slider';
 import '../scripts/component/trending-movie';

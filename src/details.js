@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-console */
 import './scripts/component/nav-bar';
 import './scripts/component/movie-detail';
 import './style/style.css';

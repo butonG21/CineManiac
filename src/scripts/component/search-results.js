@@ -18,7 +18,7 @@ class SearchResults extends HTMLElement {
             <div class="col">
               <div class="card text-bg-dark h-100 rounded-1">
                 <a href="./details.html?movie=${movieData.id}">
-                  <img src="${config.POSTER_URL}${movieData.poster_path}" class="card-img-top" alt="${movieData.title} Poster" loading="lazy" />
+                  <img src="${config.POSTER_URL}${movieData.poster_path}" class="card-img-top" alt="${movieData.title} Poster"/>
                 </a>
                 <div class="card-body">
                   <h5 class="card-title"><a href="./details.html?movie=${movieData.id}">${movieData.title}</a></h5>
