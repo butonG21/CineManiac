@@ -30,38 +30,38 @@ class MovieDetail extends HTMLElement {
         </div>
 
 
-        <div class="backdrop-info">
-            <div class="container d-flex justify-content-between align-items-center p-0">
-                <div class="info">
-                    <div class="upper-inftext">
-                        <div class="genre">
-                            <span class="fw-bold">${this.getGenres()}</span>
-                        </div>
-                        <div class="title">
-                            <span class="fw-bold">
-                                <h1>${this._movie.title} (${moment(this._movie.release_date).format('YYYY')})<h1>
-                            </span>
-                        </div>
-                        <div class="tagline">
-                            <span class="tagline-text text-white-90">"${this._movie.tagline}"</span>
-                        </div>
-                        <div class="runtime-rating d-flex align-items-center">
-                            <div class="runtime me-5">
-                                <i class="bi bi-clock"></i>
-                                <span class="fw-bold run-time">${this.minutesToHours(this._movie.runtime)}</span>
-                                <i class="${getStarIconClass(this._movie.vote_average)}"></i>
-                                <span class="fw-bold">${this._movie.vote_average.toFixed(1)}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottominf-text">
-                        <p class="fw-bold">Overview:</p>
-                        <p>${this._movie.overview}</p>
-                    </div>
+      <div class="backdrop-info">
+          <div class="container d-flex justify-content-between align-items-center p-0">
+              <div class="info">
+                  <div class="upper-inftext">
+                      <div class="genre">
+                          <span class="fw-bold">${this.getGenres()}</span>
+                      </div>
+                      <div class="title">
+                          <span class="fw-bold">
+                              <h1>${this._movie.title} (${moment(this._movie.release_date).format('YYYY')})<h1>
+                          </span>
+                      </div>
+                      <div class="tagline">
+                          <span class="tagline-text text-white-90">"${this._movie.tagline}"</span>
+                      </div>
+                      <div class="runtime-rating d-flex align-items-center">
+                          <div class="runtime me-5">
+                              <i class="bi bi-clock"></i>
+                              <span class="fw-bold run-time">${this.minutesToHours(this._movie.runtime)}</span>
+                              <i class="${getStarIconClass(this._movie.vote_average)}"></i>
+                              <span class="fw-bold">${this._movie.vote_average.toFixed(1)}</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="bottominf-text">
+                      <p class="fw-bold">Overview:</p>
+                      <p>${this._movie.overview}</p>
+                  </div>
 
-                </div>
-            </div>
-        </div>
+              </div>
+          </div>
+      </div>
     </div>
 
     <button class="btn  play-button" data-bs-toggle="modal" data-bs-target="#${modalId}">

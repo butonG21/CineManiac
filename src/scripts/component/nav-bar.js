@@ -1,4 +1,4 @@
-import img from '../image/logo.png';
+import img from '../../asset/image/logo.png';
 
 class NavBar extends HTMLElement {
   connectedCallback() {
@@ -28,7 +28,7 @@ class NavBar extends HTMLElement {
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="./#trending_movies">Movies</a></li>
-          <li><a class="dropdown-item" href="/index.html#trending_tv">TV</a></li>
+          <li><a class="dropdown-item" href="./#trending_tv">TV</a></li>
         </ul>
       </li>
     </ul>
@@ -37,7 +37,6 @@ class NavBar extends HTMLElement {
     <div>
     </nav>`;
 
-    // Aktifkan Bootstrap's Navbar Toggler
     const navbarToggler = this.querySelector('.navbar-toggler');
     const navbarCollapse = this.querySelector('.navbar-collapse');
     navbarToggler.addEventListener('click', () => {

@@ -1,41 +1,29 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index.js', // Your existing entry point
-    details: './src/details.js', // New entry point for details.html
+    index: './src/index.js',
+    details: './src/details.js',
+    search: './src/search.js',
   },
   output: {
-    filename: '[name].bundle.js', // Use [name] to create dynamic output filenames
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
-      /* style and css loader */
       {
         test: /\.(scss|css)$/,
         use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  autoprefixer,
-                ],
-              },
-            },
-          },
-          {
-            loader: 'sass-loader',
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {
@@ -46,22 +34,53 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(woff2)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/', // Folder output untuk font
+          },
+        },
+      },
     ],
   },
-  /* plugin */
   plugins: [
-    /* HTML Webpack Plugin for index.html */
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      chunks: ['index'], // Specify which entry point to include in this HTML file
+      chunks: ['index'],
+      favicon: './src/asset/image/favicon2.png',
+
     }),
-    /* HTML Webpack Plugin for details.html */
     new HtmlWebpackPlugin({
-      template: './src/details.html', // Path to your details.html template
-      filename: 'details.html', // Output filename
-      chunks: ['details'], // Specify which entry point to include in this HTML file
+      template: './src/details.html',
+      filename: 'details.html',
+      chunks: ['details'],
     }),
-    // ... other plugins ...
+    new HtmlWebpackPlugin({
+      template: './src/search.html',
+      filename: 'search.html',
+      chunks: ['search'],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
   ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+    ],
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 };

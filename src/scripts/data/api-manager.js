@@ -1,10 +1,11 @@
+/* eslint-disable consistent-return */
 import axios from 'axios';
 import * as config from './api-config';
 
 class ApiManager {
   static async getNowPlaying() {
     try {
-      const response = await axios.get(config.ReqEndpoint.movie.nowPlaying);
+      const response = await axios.get(config.ReqEndpoint.movie.upComing);
       const { data } = response;
       if (data.results) {
         return data.results;

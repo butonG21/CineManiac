@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-html {
+:root {
     --headingColor: #ff6b00;
     --alternateBlack: #0d0d0d;
     --backgroundAlternateBlack: rgba(13, 13, 13, 0.6);
@@ -38,7 +38,7 @@ body movie-detail .backdrop .backdrop-background .backdrop-background-image-filt
     width: -webkit-fill-available;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
 }
 
 body movie-detail .backdrop .backdrop-background .backdrop-background-image-filter .img-gradient {
@@ -46,16 +46,15 @@ body movie-detail .backdrop .backdrop-background .backdrop-background-image-filt
     background: rgba(0, 0, 0, 0.3);
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.7) 0%, /* Menggunakan warna latar belakang lebih gelap di bagian atas */
-        rgba(0, 0, 0, 0.5) 10%, /* Warna gradient gelap sedikit di sekitar atas */
-        rgba(0, 0, 0, 0.4) 30%, /* Warna gradient lebih gelap di tengah atas */
-        rgba(0, 0, 0, 0.3) 50%, /* Warna gradient lebih gelap di tengah */
-        rgba(0, 0, 0, 0.4) 70%, /* Warna gradient lebih gelap di tengah bawah */
-        rgba(0, 0, 0, 0.5) 90%, /* Warna gradient gelap sedikit di sekitar bawah */
-        rgba(0, 0, 0, 0.7) 100% /* Menggunakan warna latar belakang lebih gelap di bagian bawah */
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 10%,
+        rgba(0, 0, 0, 0.4) 30%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.4) 70%,
+        rgba(0, 0, 0, 0.5) 90%,
+        rgba(0, 0, 0, 0.7) 100%
     ), radial-gradient(closest-side at 0 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
     pointer-events: none;
-    /* opacity: 0.6; */
     bottom: 0;
     top: 0;
     right: 0;
@@ -96,46 +95,44 @@ body movie-detail .backdrop .backdrop-info .info .upper-inftext .tagline {
 
 body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating {
     margin-top: 4px;
-    /* margin-left: 4px; */
 }
 
-body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .runtime{
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .runtime {
     font-size: 1.4rem;
 }
 
-body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .run-time{
+body movie-detail .backdrop .backdrop-info .info .upper-inftext .runtime-rating .run-time {
     font-size: 1.4rem;
     margin-right: 2.5rem;
 }
 
-body movie-detail .backdrop .backdrop-info .info .bottominf-text{
-    margin-top: 6rem;
+body movie-detail .backdrop .backdrop-info .info .bottominf-text {
+    margin-top: 8rem;
     width: 600px;
-
 }
-/* Tambahkan CSS berikut ke dalam file CSS Anda */
+
 .modal-fullscreen {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-/* Mengatur lebar maksimum modal */
+}
+
 .modal-dialog {
-    max-width: 90%; /* Sesuaikan lebar maksimum sesuai kebutuhan Anda */
-  }
+    max-width: 90%;
+}
 
-  .modal-content {
-    background-color: transparent; /* Hapus latar belakang modal */
-  }
-  .modal-body  {
+.modal-content {
+    background-color: transparent;
+}
+
+.modal-body {
     height: 90%;
-  }
+}
 
-  .embed-responsive iframe {
+.embed-responsive iframe {
     width: 100%;
     height: 100%;
-  }
-
+}
 
 .my-button {
     color: gray;
@@ -144,10 +141,6 @@ body movie-detail .backdrop .backdrop-info .info .bottominf-text{
     font-size: 8rem;
     padding: 0;
 }
-
-/* .tagline-text {
-    font-style: italic;
-} */
 
 .position-relative {
     position: relative;
@@ -161,12 +154,11 @@ body movie-detail .backdrop .backdrop-info .info .bottominf-text{
     font-size: 2rem;
     color: #fff;
     text-decoration: none;
-    z-index: 11; /* Atur nilai z-index ke 2 untuk membuat tombol di atas backdrop-info */
+    z-index: 11;
 }
-
 
 @media (max-width: 768px) {
     .backdrop-info {
-      width: 90%;
+        width: 90%;
     }
-  }
+}

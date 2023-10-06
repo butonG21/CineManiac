@@ -1,6 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
+@font-face {
+  font-family: 'roboto';
+  src: url('../asset/font/Roboto_Condensed/RobotoCondensed-Bold.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
     --scrollerGrey: #262626;
     --lightGrey: 227, 227, 227;
@@ -17,6 +25,8 @@ html {
     --accountRed: 212, 2, 66;
     --imageBorderRadius: 8px;
     --maxPrimaryPageWidth: 1400px;
+    --heightPage: 600px;
+
   }
 
   a {
@@ -25,7 +35,7 @@ html {
   }
 
   body {
-    font-family: 'Nunito Sans', sans-serif !important;
+    font-family: 'roboto' !important;
     background-color: #000 !important;
     color: #fff !important;
   }
@@ -58,49 +68,134 @@ html {
     display: inline-block;
   }
 
-  /* .movie_slider img {
-    position: relative;
-  }
- */
-  .movie_slider::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.form-control {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#searchButton {
+  background-color: #404258;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #6B728E;
+}
+
+body .movie-slider {
+    margin-top: -5rem;
+    height: 100%;
+
+}
+
+body .movie-slider .backdrop {
     width: 100%;
-    height: auto;
-    background: linear-gradient(to bottom, rgba(0,0,0,5) 10%, rgba(0,0,0,0) 100%);
-    z-index: 10; /* Atur z-index agar elemen overlay berada di atas gambar */
-  }
+    height: 640px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-  .my-carousel-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 95px;
-    font-weight: bold;
-    color: #E5E5CB;
-  }
+body .movie-slider .backdrop .backdrop-background  {
+  z-index: 0;
+  position: absolute;
+  top: -70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 46rem;
+}
 
-  .my-carousel-paragraph {
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    color: white;
-  }
 
-  .my-carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    width: fit-content;
-    color: #EEEEEE;
-    overflow: hidden;
-  }
+ body .movie-slider .backdrop .backdrop-background #movieSlider {
+  position: inherit;
+  width: 100%;
+  height: 100%;
+}
 
-  .caption-content {
-    text-align: left;
-  }
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter{
+  position: inherit;
+  height: 100%;
+}
+
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .img-gradient {
+  position: absolute;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.3) 20%,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.2) 60%,
+      rgba(0, 0, 0, 0.3) 80%,
+      rgba(0, 0, 0, 0.5) 100%
+  ), radial-gradient(closest-side at 0 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: inherit;
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 75px 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider .slider-info .info-text .upper-text {
+  height: 141px;
+  width: 467px;
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider .slider-info .info-text .upper-text .title h1{
+  margin-top: 1rem;
+  font-family: roboto;
+  font-size: 3rem;
+  line-height: 50.07px;
+  width: 600px;
+
+
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider .slider-info .info-text .upper-text .rating-release{
+margin-top: 4px;
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider .slider-info .info-text .upper-text .rating-release .ratting{
+  font-size: 1.4rem;
+  margin-right: 2.5rem;
+
+}
+
+body .movie-slider .backdrop .backdrop-background .backdrop-background-image-filter .slider .slider-info .info-text .bottom-text {
+  margin-top: auto;
+  width: 600px;
+}
 
   .bi-star-fill {
     color: orange;
@@ -115,11 +210,7 @@ html {
 .animate__animated.animate__fadeInLeftBig {
     --animate-duration: 1.5s;
 }
-.trend-wrap {
-  background-color: #181823;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
+
 h3 {
   text-align: center;
   padding-bottom: 20px;
@@ -133,29 +224,104 @@ h3 {
     margin-top: 40px;
   }
 
-.card {
-    position: relative;
-    background-color: transparent;
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 
-}
-.card-body {
-  background: rgba(255, 255, 255, 0.2); /* Ubah warna latar belakang menjadi transparan */
-}
-.card-title {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  .custom-card {
+    background-color: rgba(228, 221, 221, 0.6);
+  }
+
+
+  .card-details {
     color: white;
-    padding: 5px;
-    margin: 0;
-}
+    padding: 10px;
+  }
+
+  .card-details .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+  }
+
+  .card-details .card-text {
+    font-size: 0.875rem;
+    color: #555;  }
+
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+
 .rating {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(0, 0, 0, 0.7); /* Ubah warna latar belakang menjadi transparan */
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px;
     border-radius: 5px;
+}
+
+@media (min-width: 1200px) {
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+  }
+  .movie-card {
+    flex: 0 0 calc(20% - 16px);
+    margin: 8px;
+  }
+}
+@media (max-width: 1199px) {
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+  }
+  .movie-card {
+    flex: 0 0 calc(25% - 16px); /* 4 kolom */
+    margin: 8px;
+  }
+}
+
+@media (max-width: 999px) {
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+  }
+  .movie-card {
+    flex: 0 0 calc(33.33% - 16px); /* 3 kolom */
+    margin: 8px;
+  }
+}
+
+@media (max-width: 799px) {
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px;
+  }
+  .movie-card {
+    flex: 0 0 calc(50% - 16px); /* 2 kolom */
+    margin: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .movie-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .movie-card {
+    flex: 0 0 auto;
+    width: 70%;
+    margin-right: 8px;
+  }
 }

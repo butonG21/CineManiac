@@ -8,17 +8,16 @@ import 'bootstrap/dist/js/bootstrap.min';
 import axios from 'axios';
 import * as config from './scripts/data/api-config';
 
-const apiKey = config.API_KEY_PARAM; // Ganti dengan API key Anda
+const apiKey = config.API_KEY_PARAM;
 
 function getTrailerVideo(videos) {
   if (videos && videos.results) {
-    // Cari video tipe "Trailer" yang resmi
     const trailer = videos.results.find((video) => video.type === 'Trailer' && video.official === true);
     if (trailer) {
       return `https://www.youtube.com/embed/${trailer.key}?enablejsapi=1&version=3&playerapiid=ytplayer`;
     }
   }
-  return ''; // Kembalikan string kosong jika tidak ada trailer yang ditemukan
+  return '';
 }
 
 function fetchAndRenderMovieDetail(movieId) {
@@ -29,7 +28,6 @@ function fetchAndRenderMovieDetail(movieId) {
       const response = await axios.get(`${config.TMDB_BASE_URL}movie/${movieId}?${apiKey}&language=en-US`);
       const movieData = response.data;
 
-      // Fetch trailer videos separately
       const videosResponse = await axios.get(`${config.TMDB_BASE_URL}movie/${movieId}/videos?${apiKey}&language=en-US`);
       movieData.videos = videosResponse.data;
 
@@ -43,7 +41,6 @@ function fetchAndRenderMovieDetail(movieId) {
   getMovieDetails(movieId)
     .then((movieData) => {
       movieDetailElement.movie = movieData;
-      // Ambil trailer video dan atur URL iframe
       const trailerVideo = getTrailerVideo(movieData.videos);
       if (trailerVideo) {
         movieDetailElement.setTrailerUrl(trailerVideo);
@@ -58,7 +55,6 @@ function fetchAndRenderMovieDetail(movieId) {
     });
 }
 
-// Extract movieId from URL or any other way you have it
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('movie');
 
@@ -66,4 +62,7 @@ if (movieId) {
   fetchAndRenderMovieDetail(movieId);
 } else {
   console.error('Movie ID not found in URL.');
+
+  const movieDetailElement = document.querySelector('movie-detail');
+  movieDetailElement.renderError('Movie ID not found in URL.');
 }
